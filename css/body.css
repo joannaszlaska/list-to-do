@@ -1,0 +1,11 @@
+.body {
+    background-color: #eee;
+    max-width: 900px;
+    padding: 20px;
+    margin: 20px auto;
+    font-family: 'Lato', sans-serif;
+}
+
+.body__header {
+    margin-bottom: 20px;
+}
