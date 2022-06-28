@@ -1,0 +1,23 @@
+.button {
+    color:black;
+    height: 30px;
+    width: 30px;
+    border: none;
+}
+
+
+.button__done {
+    background-color: green;
+}
+
+.button__remove {
+    background-color: red;
+}
+
+.button:hover {
+    cursor: active;
+}
+
+.button:active {
+    outline: 1px solid black;
+}
