@@ -10,8 +10,7 @@
             done: true,
         },
     ]
-
-
+    
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
@@ -52,25 +51,28 @@
 
         for (const task of tasks) {
             htmlString += `
-       
-        <button class="js-done">zrobione</button>
-        <li class="task${task.done ? " task__done" : ""}">
-
+           
+        <li class="task">
+        <button class=" button button__done js-done">${task.done ? "✔" : ""}</button>
+        <span class="task__content ${task.done ? "task__content--done" : ""}">
         ${task.content}
-
-        <button class="js-remove">usuń</button>
-        </li> ` ;
-
+        <button class=" button button__remove js-remove">🗑️</button>
+        </li> 
+        ` ;
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
         bindEvents();
     };
 
+    const clearForm = () => {
+        const formInput = document.querySelector(".js-newTask");
+        formInput.value = "";
 
+        formInput.focus();
+    };
 
-    const onFormSubmit =
-        (event) => {
+    const onFormSubmit = (event) => {
             event.preventDefault();
 
             const newTaskContent = document.querySelector(".js-newTask").value.trim();
@@ -78,8 +80,9 @@
             if (newTaskContent === "") {
                 return;
             }
-            addNewTask(newTaskContent);
 
+            addNewTask(newTaskContent);
+            clearForm();
         };
 
     const init = () => {
