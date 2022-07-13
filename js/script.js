@@ -56,6 +56,7 @@
         <button class=" button button__done js-done">${task.done ? "✔" : ""}</button>
         <span class="task__content ${task.done ? "task__content--done" : ""}">
         ${task.content}
+        </span>
         <button class=" button button__remove js-remove">🗑️</button>
         </li> 
         ` ;
