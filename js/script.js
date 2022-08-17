@@ -1,37 +1,41 @@
 {
-    const tasks = [
-        {
-            content: "zrobić trening",
-            done: false,
-        },
-
-        {
-            content: "zjeść kolację",
-            done: true,
-        },
-    ]
+    let tasks = [];
+    let hideDoneTasks = false;
     
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        })
+        tasks = [
+            ...tasks,
+            {content: newTaskContent, done: false}
+        ]
         render();
     };
 
-    const removeTasks = (index) => {
-        tasks.splice(index, 1);
+    const removeTasks = (taskindex) => {
+        tasks = [
+            ...tasks.slice(0, taskindex),
+            ...tasks.slice(taskindex + 1)
+        ]
+
         render();
     }
 
-    const toggleTaskDone = (index) => {
-        tasks[index].done = !tasks[index].done;
+    const toggleTaskDone = (taskindex) => {
+        tasks = [
+            ...tasks.slice(0,taskindex),
+
+            {...tasks[taskindex], done: !tasks[taskindex].done,},
+            
+           ...tasks.slice(taskindex + 1),
+    
+        ];
+       
         render();
     };
 
     const bindEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
-        removeButtons.forEach((removeButtons, index) => {
+        removeButtons.forEach((removeButtons, taskindex) => {
             removeButtons.addEventListener("click", () => {
                 removeTasks(index);
             });
@@ -46,7 +50,7 @@
         })
     };
 
-    const render = () => {
+    const renderTasks = () => {
         let htmlString = "";
 
         for (const task of tasks) {
@@ -63,7 +67,22 @@
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
+      
+
+    };
+
+    const renderButtons = () => {
+
+    }; 
+    
+    const bindButtonsEvents = () => {};
+
+    const render = () => {
+    
+        renderTasks();
+        renderButtons();
         bindEvents();
+        bindButtonsEvents();
     };
 
     const clearForm = () => {
