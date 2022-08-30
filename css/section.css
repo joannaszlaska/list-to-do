@@ -1,12 +1,40 @@
 .section {
 background-color: white;
-margin: 0 auto;
+margin: 10px 0;
 }
 
 .section__header {
     border-bottom: 2px solid #eee;
     padding: 20px;
-    margin-bottom:0px;
+    margin: 0px;
     font-size: 20px; 
 } 
+.section__buttonsContainer {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    grid-gap: 10px;
+}
+
+@media (max-width: 765px) {
+    .section__buttonsContainer {
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+}
+
+.section__button {
+    font-size: 18px;
+    border: none;
+    background: none;
+    color: teal;
+    transition: 0.5s;
+}
+
+.section__button:hover {
+    color:hsl(180, 100%, 35%)
+}
+
+.section__button:disabled {
+    color: lightgray;
+}
 
