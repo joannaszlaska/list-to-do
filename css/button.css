@@ -1,5 +1,5 @@
 .button {
-    color:black;
+    color:white;
     height: 30px;
     width: 30px;
     border: none;
@@ -8,10 +8,20 @@
 
 .button__done {
     background-color: green;
+    transition: 1s;
+}
+
+.button__done:hover {
+    background: hsl(120, 100%, 35%);
 }
 
 .button__remove {
     background-color: red;
+    transition: 1s;
+}
+
+.button__remove:hover {
+    background: hsl(0, 100%, 60%) ;
 }
 
 .button:hover {
